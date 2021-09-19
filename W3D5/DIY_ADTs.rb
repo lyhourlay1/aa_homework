@@ -1,4 +1,6 @@
 class Stack
+    
+
     def initialize
       # create ivar to store stack here!
       @ivar=[]
@@ -6,36 +8,59 @@ class Stack
 
     def push(el)
       # adds an element to the stack
-      @ivar=@ivar+[]
+      ivar.push(el)
+      el
     end
 
     def pop
       # removes one element from the stack
-      @ivar=@ivar[0..-2]
+      ivar.pop
     end
 
     def peek
       # returns, but doesn't remove, the top element in the stack
-      @ivar[-1]
+      ivar.last
     end
-  end
 
-  class Queue
+    private
+    attr_reader :ivar
+end
+
+  class MyQueue
+    
     def initialize
-        @ivar=[]
+      @ivar=[]
     end
 
     def enqueue(el)
-        @ivar = [ele]+@ivar
+      ivar.unshift(el)
+      #show the stack bc its part of the implementation
+      self
     end
 
     def dequeue
-        @ivar = @ivar[0..-2]
+      ivar.pop
+    end
+
+    def size
+      ivar.size
+    end
+
+    def empty?
+      ivar.empty?
+    end
+
+    def show
+      #to hide the return array
+      print store 
     end
 
     def peek
-        @ivar[-1]
+      ivar.last
     end
+    #outside class cannot call 
+    private
+    attr_reader :ivar
   end
 
   class Map

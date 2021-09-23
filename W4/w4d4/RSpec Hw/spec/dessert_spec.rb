@@ -7,11 +7,11 @@ Instructions: implement all of the pending specs (the `it` statements without bl
 
 describe Dessert do
   let(:chef) { double("chef",name:"Lyhour") }
-  subject(:cookies) {Dessert.new('chocolate', 50, chef)}
+  subject(:cookies) {Dessert.new('cookies', 50, chef)}
 
   describe "#initialize" do
     it "sets a type" do
-      expect(cookies.type).to eq("chocolate")
+      expect(cookies.type).to eq("cookies")
     end
     it "sets a quantity" do
       expect(cookies.quantity).to eq(50)
@@ -21,7 +21,7 @@ describe Dessert do
       expect(cookies.ingredients).to be_empty 
     end
     it "raises an argument error when given a non-integer quantity" do 
-      expect{Dessert.new("brownie", "adfa","ton")}.to raise_error("need to be integer")
+      expect{Dessert.new("brownie", "adfa","ton")}.to raise_error(ArgumentError)
     end
   end
 
@@ -46,7 +46,7 @@ describe Dessert do
     end
 
     it "raises an error if the amount is greater than the quantity" do 
-      expect{cookies.eat(51)}.to raise_error("not enough left")
+      expect{cookies.eat(51)}.to raise_error("not enough left!")
     end
   end
 
